@@ -42,9 +42,28 @@ class Person{
     }
 }
 
+class Student extends Person {
+    constructor(name, age, occupation, major) {
+        super(name, age, occupation);
+        this.major = major;
+    }
 
-// Creating an object (instance) of the Person class
-const personOne = new Person('SALIZ', 18, 'TAMBAY');
+    // Overriding the displayInfo method
+    displayInfo() {
+        super.displayInfo();
+        console.log("Major: " + this.major);
+    }
+
+    // Extending the displayInfoHTML method
+    displayInfoHTML() {
+        super.displayInfoHTML();
+        const personElement = document.getElementById('personOne');
+        personElement.innerHTML += `<br><strong>Major:</strong> ${this.major}`;
+    }
+}
+
+// Creating an instance of the Student class
+const studentOne = new Student('Saliz', 18, 'TAMBAY', 'TULOG');
 
 // Calling methods
-personOne.displayInfo();  
+studentOne.displayInfo();
