@@ -3,21 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Roboto', sans-serif;
-            color: rgb(47, 0, 255);
             text-align: center;
+            background-color: #f2f2f2; /* Light gray background */
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333; /* Dark gray heading */
+        }
+
+        #personOne {
+            background-color: #fff; /* White background for info */
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            margin: 20px auto;
+            width: 300px; /* Adjust width as needed */
         }
     </style>
-    <title>Topic 3 - Access Modifiers and Encapsulation</title>
+    <title>Topic 4 - Inheritance</title>
 </head>
 <body>
-    <h1>Topic 3 - Access Modifiers and Encapsulation</h1>
+    <h1>Topic 4 - Inheritance</h1>
     <h1 id="personOne"></h1>
     <script>
-        class Person{
+    class Person{
 
         //Private Fields
         #name;
@@ -59,15 +72,34 @@
                 <strong>Occupation:</strong> ${this.occupation}
             `;
         }
+    }
+
+    class Student extends Person {
+        constructor(name, age, occupation, major) {
+            super(name, age, occupation);
+            this.major = major;
         }
 
+        // Overriding the displayInfo method
+        displayInfo() {
+            super.displayInfo();
+            console.log("Major: " + this.major);
+        }
 
-        // Creating an object (instance) of the Person class
-        const personOne = new Person('Saliz', 18, 'TAMBAY');
+        // Extending the displayInfoHTML method
+        displayInfoHTML() {
+            super.displayInfoHTML();
+            const personElement = document.getElementById('personOne');
+            personElement.innerHTML += `<br><strong>Major:</strong> ${this.major}`;
+        }
+        }
+
+        // Creating an instance of the Student class
+        const studentOne = new Student('SALIZ', 18, 'TAMBAY', 'MATULOG');
 
         // Calling methods
-        personOne.displayInfo();  
-        personOne.displayInfoHTML();  
+        studentOne.displayInfo();
+        studentOne.displayInfoHTML();
     </script>
 </body>
 </html>
