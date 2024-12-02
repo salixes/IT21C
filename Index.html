@@ -3,36 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Objects</title>
-</head>
-<body>
-    <h1>Hello World of OOP hehe</h1>
-    <h1 id="person1-name"></h1>
-    <h1 id="person1-age"></h1>
-    <h1 id="person1-occupation"></h1>
-
-
-    <script>
-       //Input
-        const person1 ={
-            name:"Saliz II Pag-oy",
-            age:18,
-            occupation:"Walay pulos"
+    <title>Homepage with Topics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
         }
 
-        //Process and Output
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
 
-        //Solution 1: Display via console.log
-        console.log("Name: " + person1.name);
-        console.log("Age: "  +person1.age);
-        console.log("Occupation: " + person1.occupation);
+        h1 {
+            margin: 0;
+        }
 
-        //Solution 2: Display via HTML
-        document.getElementById("person1-name").innerHTML = "Name: " + person1.name;
-        document.getElementById("person1-age").innerHTML = "Age: " + person1.age;
-        document.getElementById("person1-occupation").innerHTML = "Occupation: " + person1.occupation;
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
 
+        .container2 {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
 
+        h3 {
+            margin-bottom: 20px;
+        }
+
+        h3 a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        h3 a:hover {
+            color: #007bff;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <h1>Explore Topics</h1>
+        </div>
+    </header>
+    <div class="container">
+        <div class="container2">
+            <h3><a href="main/me.html">PROFILE</a></h3>
+            <h3><a href="Topic-1_ObjAndClasses/topic_1.html">Topic 1 - Objects and Classes</a></h3>
+            <h3><a href="Topic-2_Methods/topic_2.html">Topic-2_Methods</a></h3>
+            <h3><a href="Topic-3_AccessModifAndEncapsulation/Topicc_3.html">Topic 3 - Access Modifiers and Encapsulation</a></h3>
+            <h3><a href="Topic-4__Inheritance/topic_4.html">Topic 4 - Inheritance</a></h3>
+            <h3><a href="charts/L05_linechart.html">Topic 5 - LineChart</a></h3>
+            <h3><a href="charts/L06-Barchart.html">Topic 6 - BarChart</a></h3>
+        </div>
+  
+
+    <footer>
+        <p>&copy; 2024 Your Website. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Add functionality to each topic block
+        document.querySelectorAll('.topic').forEach(topic => {
+            topic.addEventListener('click', () => {
+                const topicId = topic.id;
+                alert(`You clicked on ${topicId}`);
+                // For now, show an alert. You can replace this with actual navigation or functionality.
+                // Example:
+                // window.location.href = `${topicId}.html`; // Redirect to a separate page for each topic
+            });
+        });
     </script>
 </body>
-</htm
+</html>

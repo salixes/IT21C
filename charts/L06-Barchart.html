@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bar Chart Example</title>
+
+    <!-- Bootstrap CSS for responsive design and layout -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Chart.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Bar Chart Example</h1>
+        
+        <!-- Chart container, where the chart will be rendered -->
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <canvas id="myBarChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Data for the bar chart
+        const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+
+        const data = {
+            labels: labels,  // X-axis labels (months)
+            datasets: [{
+                label: 'Monthly Sales',  // Label for the dataset
+                data: [65, 59, 80, 81, 56, 55, 40],  // Y-axis values (sales data)
+                backgroundColor: 'rgba(75, 192, 192, 0.5)',  // Bar color with some transparency
+                borderColor: 'rgba(75, 192, 192, 1)',  // Border color for each bar
+                borderWidth: 1,  // Border width of the bars
+            }]
+        };
+
+        // Configuration options for the bar chart
+        const config = {
+            type: 'bar',  // Specifies a bar chart
+            data: data,   // Chart data
+            options: {
+                responsive: true,  // Makes the chart responsive
+                plugins: {
+                    legend: {
+                        position: 'top',  // Position of the legend
+                    },
+                    tooltip: {
+                        enabled: true,  // Enable tooltips on hover
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,  // Ensures the x-axis starts from zero
+                    },
+                    y: {
+                        beginAtZero: true,  // Ensures the y-axis starts from zero
+                    }
+                }
+            }
+        };
+
+        // Get the canvas context and create the chart
+        const ctx = document.getElementById('myBarChart').getContext('2d');
+        new Chart(ctx, config);  // Create and render the chart
+    </script>
+
+    <!-- Bootstrap JS (optional, for additional Bootstrap features like modals) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
